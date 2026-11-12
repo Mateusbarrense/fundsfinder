@@ -6,6 +6,8 @@ from django.shortcuts import render
 # Aula 12/11/2026 - ViewSets, Routers, autenticação, permissões e documentação de APIs.
 
 # Arquivo views.py dentro do app api
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.filters import SearchFilter
 from rest_framework import viewsets, permissions
 from api.models import FundoImobiliario
 from api.serializers import FundoImobiliarioSerializer
@@ -33,3 +35,7 @@ class FundoImobiliarioViewSet(viewsets.ModelViewSet):
     # Restringe o acesso aos endpoints. Neste caso, apenas usuários autenticados
     # (logados) podem visualizar, criar, editar ou excluir os dados.
     permission_classes = [permissions.IsAuthenticated]
+
+    filter_backends = [DjangoFilterBackend, SearchFilter]
+    filterset_fields = ['codigo_fundo_imobiliario', 'setor']
+    search_fields = ['codigo_fundo_imobiliario', 'setor']
