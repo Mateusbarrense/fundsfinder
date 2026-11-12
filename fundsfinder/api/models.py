@@ -8,12 +8,11 @@ from django.db import models
 
 class FundoImobiliario(models.Model):
     SETOR_CHOICES = [
-    ('hospital', 'Hospital'), ('hotel', 'Hotel'), ('hibrido',
-    'Híbrido'),
-    ('lajes_corporativas', 'Lajes Corporativas'),
-    ('logistica', 'Logística'), ('outros', 'Outros'),
-    ('residencial', 'Residencial'),
-    ('titulos_valores_mobiliarios', 'Títulos e Val. Mob.')
+        ('hospital', 'Hospital'), ('hotel', 'Hotel'), ('hibrido', 'Híbrido'),
+        ('lajes_corporativas', 'Lajes Corporativas'),
+        ('logistica', 'Logística'), ('outros', 'Outros'),
+        ('residencial', 'Residencial'),
+        ('titulos_valores_mobiliarios', 'Títulos e Val. Mob.')
     ]
     id_fundo_imobiliario = models.UUIDField(primary_key=True, default=uuid.uuid4)
     codigo_fundo_imobiliario = models.CharField(max_length=8, null=False, blank=False)
